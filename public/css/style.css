@@ -1,0 +1,138 @@
+
+body{
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+
+/* Navbar */
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+
+
+.nav-link{
+    color: #222222 !important;
+}
+
+.navbar-nav .logo{
+    color: #fe424d !important;
+    font-weight: 1000 !important;
+    font-size: 30px !important;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+ 
+    
+}
+/* Footer */
+.footer-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+    transition: 0.3s;
+}
+.f-info-links a:hover {
+    text-decoration: underline;
+    color: #ca2a2a;
+    transform: scale(1.1);
+}
+
+.f-info-links , .f-info-socials , .f-info-brand{ 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.f-info-socials i{
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+.f-info{
+    text-align: center;
+    display: flex;
+    height: 8rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* Cards */
+
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover;
+
+}
+.card-body{
+    padding: 0 !important;
+}
+.card-text p {
+    font-weight: 400 !important;
+
+}
+.listing-link{
+    text-decoration: none;
+}
+
+/* Card-Effect */
+
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+/* New Page */
+.add-btn{
+    background-color:  #fe424d !important;
+    border: none !important;
+}
+
+/* Edit Page */
+.edit-btn{
+    background-color:  #fe424d !important;
+    border: none !important;
+}
+
+/* Show Image */
+.show-img{
+    height: 30vh;
+}
+
+.btns{
+    display: flex;
+}
+
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* MAp */
+
+#map {
+    height: 400px;
+    width: 80vh;
+
+}

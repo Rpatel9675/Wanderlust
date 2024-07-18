@@ -1,36 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wanderlust</title>
-  </head>
-  <body>
-    <h3>Edit your Listing</h3>
-    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
-      <input name="listing[title]" value="<%= listing.title %>" type="text" />
-      <br /><br />
-      <textarea name="listing[description]">
-<%= listing.description %></textarea
-      >
-      <br /><br />
-      <input name="listing[image]" value="<%= listing.image %>" type="text" />
-      <br /><br />
-      <input name="listing[price]" value="<%= listing.price %>" type="number" />
-      <br /><br />
-      <input
-        name="listing[country]"
-        value="<%= listing.country %>"
-        type="text"
-      />
-      <br /><br />
-      <input
-        name="listing[location]"
-        value="<%= listing.location %>"
-        type="text"
-      />
-      <br /><br />
-      <button>Edit</button>
-    </form>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeHevan </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/rating.css">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+
+    <style>
+        #filters {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .filter {
+            text-align: center;
+            margin-right: 2rem;
+            margin-top: 1rem;
+            opacity: 0.7;
+        }
+
+        .filter:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+        .filter p{
+            font-size: 0.8rem;
+        }
+        .tax-info{
+            display: none;
+        }
+        .tax-toggle{
+            border: 0.1px #00000099 solid;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            display: flex;
+            height: 2.5rem;
+            align-items: center;
+            margin-left: 1rem;
+            margin-top: 0.4rem;
+        }
+
+
+        .btn-search:hover{
+            background-color: #fe424d;
+            color: #ffff;
+        }
+        .btn-search{
+            background-color: #fe424d;
+            color: #ffff;
+            border-radius: 25px;
+            padding: 0 1rem 0 1rem;
+        }
+        .btn-search i {
+            display: inline;
+            margin-right: 0.5rem;
+        }
+        .search-input{
+            border-radius: 20px;
+            padding: 0.5rem 3rem 0.5rem 3rem;
+        }
+
+    </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/listings"><i class="fa-solid fa-infinity fa-2xl" style="color: #fe424d;"></i></a> 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link logo" href="/listings">HomeHevan</a>
+            </div>
+            <div class="navbar-nav ms-auto">
+                <a href="/signup"> <button class="btn btn-search" type="submit">
+                    <i class="fa-solid fa-user"></i>Signup</button></a>
+                   
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+        <h3>Edit your listing</h3>
+        <form action="/listings/<%= listing._id %>?_method=PUT" method="POST">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="listing[title]" value="<%= listing.title %>">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="listing[description]"><%= listing.description %></textarea>
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" class="form-control" id="location" name="listing[location]" value="<%= listing.location %>">
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" name="listing[country]" value="<%= listing.country %>">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" id="price" name="listing[price]" value="<%= listing.price %>">
+            </div>
+            <button type="submit" class="btn btn-primary">Update Listing</button>
+        </form>
+    </div>
+</div>
+
+</body>
 </html>

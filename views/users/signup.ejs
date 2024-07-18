@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeHevan</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/rating.css">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+
+    <style>
+        #filters {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .filter {
+            text-align: center;
+            margin-right: 2rem;
+            margin-top: 1rem;
+            opacity: 0.7;
+        }
+
+        .filter:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .filter p {
+            font-size: 0.8rem;
+        }
+
+        .tax-info {
+            display: none;
+        }
+
+        .tax-toggle {
+            border: 0.1px #00000099 solid;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            display: flex;
+            height: 2.5rem;
+            align-items: center;
+            margin-left: 1rem;
+            margin-top: 0.4rem;
+        }
+
+        .btn-search:hover {
+            background-color: #fe424d;
+            color: #ffff;
+        }
+
+        .btn-search {
+            background-color: #fe424d;
+            color: #ffff;
+            border-radius: 25px;
+            padding: 0 1rem 0 1rem;
+        }
+
+        .btn-search i {
+            display: inline;
+            margin-right: 0.5rem;
+        }
+
+        .search-input {
+            border-radius: 20px;
+            padding: 0.5rem 3rem 0.5rem 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/listings"><i class="fa-solid fa-infinity fa-2xl" style="color: #fe424d;"></i></a> 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link logo" href="/listings">HomeHevan</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <a href="/login"> <button class="btn btn-search" type="submit">
+                        <i class="fa-solid fa-user"></i>Login</button></a>
+                       
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div class="row mt-3">
+    <h1 class="col-6 offset-3">Sign up on HomeHevan</h1><br><br><br>
+    <div class="col-6 offset-3" >
+        <form action="/signup" method="POST" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <lable for="username" class="form-label">Username</lable>
+                <input type="text" name="username" id="username" class="form-control" required placeholder="Enter username">
+                <div class="valid-feedback">Looks good!</div>
+                
+            </div>
+            <div class="mb-3">
+                <lable for="email" class="form-label">E-mail</lable>
+                <input type="email" name="email" id="email" class="form-control" required placeholder="Enter email">
+                
+            </div>
+            <div class="mb-3">
+                <lable for="password" class="form-label">Password</lable>
+                <input type="password" name="password" id="pass" class="form-control" required placeholder="Enter password">
+                <div class="valid-feedback">Looks strongs!</div>
+            </div>
+            <button class="btn btn-info">SignUp</button>
+        </form>
+        
+    </div>
+</div>
+
+<footer>
+    <div class="f-info">
+        <div class="f-info-socials">
+            <a href="https://www.instagram.com/itz___harshrajput/" style="color: inherit;"><i
+                    class="fa-brands fa-square-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/harsh-singh-5b5a0b256/" style="color: inherit;"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/h4rshgithub" style="color: inherit;"><i
+                    class="fa-brands fa-square-github"></i></a>
+        </div>
+        <div class="f-info-brand">&copy; HomeHevan Private Limited</div>
+        <div class="f-info-links">
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+    taxSwitch.addEventListener("click", () => {
+        let taxInfo = document.getElementsByClassName("tax-info");
+        for (let info of taxInfo) {
+            if (info.style.display != "inline") {
+                info.style.display = "inline";
+            } else {
+                info.style.display = "none";
+            }
+        }
+    })
+</script>
+</body>
+
+</html>
