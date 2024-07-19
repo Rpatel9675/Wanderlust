@@ -8,6 +8,8 @@ const ejsMate = require("ejs-mate");
 const {listingSchema, reviewSchema}=require("./schema.js");
 const Review = require('./models/review'); 
 const User=require("./models/user.js");
+const passport=require("passport");
+const localStrategy=require("passport-local");
 // Connect to MongoDB
 main()
   .then(() => {
@@ -31,6 +33,7 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
+// app.use(session(sessionOptions));
 
 // Routes
 app.get("/", (req, res) => {
