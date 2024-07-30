@@ -30,8 +30,8 @@ Wanderlust is designed to be a one-stop destination for all things travel. From 
 - **Reviews and Ratings:** Read and write reviews for destinations, hotels, and activities.
 
 ## Tech Stack
-- **Frontend:**  HTML5, CSS3, JavaScript
-- **Backend:** Node.js, Express.js
+- **Frontend:**  HTML5, CSS3, JavaScript, Bootstrap
+- **Backend:** Node.js, Express.js, Ejs, Multar, Rest API
 - **Database:** MongoDB
 - **Authentication:** Passport
 - **Version Control:** Git, GitHub
